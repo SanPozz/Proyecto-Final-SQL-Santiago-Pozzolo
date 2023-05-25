@@ -26,7 +26,6 @@ CREATE TABLE posts (
     post VARCHAR(120) NOT NULL,
     datetime DATE NOT NULL,
     id_system_user INT NOT NULL,
-    id_likes INT NOT NULL,
     FOREIGN KEY (id_system_user) REFERENCES users (id_system_user)
 );
 
@@ -42,14 +41,9 @@ CREATE TABLE comments (
 CREATE TABLE likes (
 	id_likes INT AUTO_INCREMENT PRIMARY KEY,
     id_post INT NOT NULL,
-    amount_likes INT NOT NULL,
+    id_system_user INT NOT NULL,
+    FOREIGN KEY (id_system_user) REFERENCES users (id_system_user),
     FOREIGN KEY (id_post) REFERENCES posts (id_post)
 );
 
-ALTER TABLE posts
-ADD COLUMN id_comment INT NOT NULL,
-ADD FOREIGN KEY (id_comment) REFERENCES comments (id_comment);
-
-ALTER TABLE posts
-ADD FOREIGN KEY (id_likes) REFERENCES likes (id_likes);
 
