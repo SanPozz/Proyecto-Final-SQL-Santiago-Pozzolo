@@ -16,7 +16,7 @@ END $$
 DELIMITER ;
 DELIMITER $$
 
--- Este SP insertar dinamicamente usuarios en la tabla users y tambien permite eliminar algun registro de la tabla que desees (segun su id) mediante un parametro de entrada llamado action
+-- Este SP inserta dinamicamente usuarios en la tabla users y tambien permite eliminar algun registro de la tabla que desees (segun su id) mediante un parametro de entrada llamado action
 
 CREATE PROCEDURE insert_or_delete_dynamic(
     IN action INT,
