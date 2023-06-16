@@ -47,9 +47,9 @@ DELIMITER ;
 
 DELIMITER $$
 
--- Este trigger se activa antes de insertar un usuario y registra en una tabla de logs el id del usuario que va a insertarse  la fecha en la que se inserta y la persona que lo inserta.
+-- Este trigger se activa despues de insertar un usuario y registra en una tabla de logs el id del usuario que se inserto la fecha en la que se inserto y la persona que lo inserta.
 
-CREATE TRIGGER before_insert_user
+CREATE TRIGGER after_insert_user
 AFTER INSERT ON users
 FOR EACH ROW
 BEGIN

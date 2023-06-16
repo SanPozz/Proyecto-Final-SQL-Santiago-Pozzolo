@@ -13,7 +13,7 @@ GROUP BY p.id_post, p.post;
 CREATE VIEW post_comments AS
 SELECT p.id_post, p.post, c.comment, u.username AS commenter_username
 FROM posts p
-LEFT JOIN comments c ON p.id_post = c.id_post
+JOIN comments c ON p.id_post = c.id_post
 LEFT JOIN users u ON c.id_system_user = u.id_system_user;
 
 CREATE VIEW user_post_comment_count AS

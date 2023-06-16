@@ -92,20 +92,20 @@ BEGIN
     SET post_count = (SELECT COUNT(*) FROM posts WHERE id_system_user = user_id);
     RETURN post_count;
 END$$
-
+     
 -- Esta funcion consulta a la base de datos el nombre y apellido de un usuario mediante su id y lo devuelve completo
--- No funciona y no entiendo porque
+-- Ya funciona
 DELIMITER $$
 
 CREATE FUNCTION get_full_name(user_id INT) RETURNS VARCHAR(80)
 DETERMINISTIC
 BEGIN
-    DECLARE first_name VARCHAR(40);
-    DECLARE last_name VARCHAR(40);
+    DECLARE f_name VARCHAR(40);
+    DECLARE l_name VARCHAR(40);
     DECLARE full_name VARCHAR(80);
     
-    SELECT first_name, last_name INTO first_name, last_name FROM users WHERE id_system_user = user_id;
-    SET full_name = CONCAT(first_name, ' ', last_name);
+    SELECT first_name, last_name INTO f_name, l_name FROM users WHERE id_system_user = user_id;
+    SET full_name = CONCAT(f_name, ' ', l_name);
     
     RETURN full_name;
 END$$
@@ -124,6 +124,6 @@ END $$
 DELIMITER ;
 SELECT get_post_count(1) AS cantidad_de_posts_del_usuario;
 
-SELECT get_full_name(1) AS Nombre_Completo; -- No funciona
+SELECT get_full_name(13) AS Nombre_Completo; -- Ya funciona
 
 SELECT get_user_message_count(1) AS Cantidad_de_Mensajes;

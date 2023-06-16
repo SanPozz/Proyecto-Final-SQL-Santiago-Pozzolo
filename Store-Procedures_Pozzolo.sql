@@ -16,11 +16,10 @@ END $$
 DELIMITER ;
 DELIMITER $$
 
--- Este SP inserta dinamicamente usuarios en la tabla users y tambien permite eliminar algun registro de la tabla que desees (segun su id) mediante un parametro de entrada llamado action
+-- Este SP inserta dinamicamente usuarios en la tabla users y tambien permite eliminar algun registro de la tabla users (segun su id) mediante un parametro de entrada llamado action
 
 CREATE PROCEDURE insert_or_delete_dynamic(
     IN action INT,
-    IN table_name VARCHAR(100),
     IN delete_id INT,
     IN first_name_value VARCHAR(40),
     IN last_name_value VARCHAR(40),
@@ -30,7 +29,7 @@ CREATE PROCEDURE insert_or_delete_dynamic(
 )
 BEGIN
     IF action = 1 THEN
-        SET @sql = CONCAT('INSERT INTO ', table_name, ' (first_name, last_name, username, email, password)',
+        SET @sql = CONCAT('INSERT INTO ', 'users', ' (first_name, last_name, username, email, password)',
                           ' VALUES (', QUOTE(first_name_value), ', ', QUOTE(last_name_value), ', ',
                           QUOTE(username_value), ', ', QUOTE(email_value), ', ', QUOTE(password_value), ')');
         
@@ -38,7 +37,7 @@ BEGIN
         EXECUTE stmt;
         DEALLOCATE PREPARE stmt;
     ELSEIF action = 2 THEN
-        SET @sql = CONCAT('DELETE FROM ', table_name, ' WHERE id_system_user = ', delete_id);
+        SET @sql = CONCAT('DELETE FROM ', 'users', ' WHERE id_system_user = ', delete_id);
         
         PREPARE stmt FROM @sql;
         EXECUTE stmt;
@@ -50,7 +49,7 @@ DELIMITER ;
 
 
 
-CALL insert_or_delete_dynamic(1, 'users', NULL, 'Niko', 'Kusje', 'nicokusje', 'nikokusje@example.com', 'pass982');
-select * from users where first_name = 'Niko';
+CALL insert_or_delete_dynamic(1, NULL, 'Nico', 'Lopez', 'nicolopez', 'nicolopez@example.com', 'pass782');
+select * from users where first_name = 'Nico';
 
 CALL order_table_by_field('users', 'first_name', 'DESC');
