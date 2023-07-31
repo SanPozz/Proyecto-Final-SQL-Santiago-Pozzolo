@@ -26,8 +26,8 @@ En esta sección, se muestra la cantidad de publicaciones y comentarios realizad
 Esta sección muestra el número de likes que cada usuario ha dado en la red social. Los campos relevantes incluyen el ID del usuario, su nombre de usuario y el total de likes que ha dado. Los usuarios se presentan en orden ascendente según la cantidad de likes que han dado.
 
 
-### Built With
+### Tecnologia Usada
 
+* ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
-
-* [![SQL]
+* ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)
