@@ -1,6 +1,6 @@
 # Proyecto-Final-SQL-Santiago-Pozzolo
 
-## Informe de las Vistas para la Red Social
+## Informe de las Vistas generadas para la Red Social
 
 
 A continuación, presento un informe detallado basado en el análisis de las vistas proporcionadas, que nos ofrece una visión completa de la actividad de los usuarios en nuestra plataforma. Estos datos pueden ser útiles para implementar funcionalidades dentro de la app, comprender el comportamiento de los usuarios y tomar decisiones estratégicas para mejorar la experiencia y el compromiso en nuestra red social.
@@ -26,7 +26,7 @@ En esta sección, se muestra la cantidad de publicaciones y comentarios realizad
 Esta sección muestra el número de likes que cada usuario ha dado en la red social. Los campos relevantes incluyen el ID del usuario, su nombre de usuario y el total de likes que ha dado. Los usuarios se presentan en orden ascendente según la cantidad de likes que han dado.
 
 
-### Tecnologia Usada
+### Tecnologias Usadas
 
 * ![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
 
